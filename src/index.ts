@@ -9,17 +9,19 @@ import swaggerJSDoc from 'swagger-jsdoc';
 import swaggerUi from 'swagger-ui-express';
 import { PORT, RATE_LIMIT_PERIOD, RATE_LIMIT_REQUESTS } from './constants';
 
-dotenv.config();
+dotenv.config(); // Load environment variables from .env file
 
-const app = express();
+const app = express(); // Create Express application
 
-app.use(bodyParser.json());
-app.use(cors());
-app.use(morgan('dev'));
+// Middleware setup
+app.use(bodyParser.json()); // Parse JSON request bodies
+app.use(cors()); // Enable CORS
+app.use(morgan('dev')); // Log HTTP requests
 app.use(rateLimit({
-  windowMs: RATE_LIMIT_PERIOD as number,
-  max: RATE_LIMIT_REQUESTS as number,
+  windowMs: RATE_LIMIT_PERIOD as number, // Set rate limiting window duration
+  max: RATE_LIMIT_REQUESTS as number, // Set maximum number of requests within the window
 }));
+
 // Swagger implementation
 const swaggerDefinition = {
   openapi: '3.0.0',
@@ -41,11 +43,12 @@ const options = {
   apis: ['./src/routes/*.ts'],
 };
 const swaggerSpec = swaggerJSDoc(options);
-app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec)); // Serve Swagger UI at '/docs' endpoint
 
 // Add routes
-app.use('/', priceRoutes); 
+app.use('/', priceRoutes); // Mount price-related routes at root ('/') endpoint
 
+// Start server
 export const listener = app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

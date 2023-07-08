@@ -18,15 +18,19 @@ export const getSinglePairPrice = async (req: Request, res: Response) => {
   }
   catch (error) {
     if(error instanceof ContractError) {
+      // Handle specific ContractError
       res.status((error as ContractError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof RPCError) {
+      // Handle specific RPCError
       res.status((error as RPCError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof HTTPError) {
+      // Handle specific HTTPError
       res.status((error as HTTPError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else {
+      // Handle unknown error
       res.status(500).json({ error: { type: 'Unknown', message: `Unknow error occured : ${error}` } });
     }
   }
@@ -61,15 +65,19 @@ export const getBatchPrices = async (req: Request, res: Response) => {
   } 
   catch (error) {
     if(error instanceof ContractError) {
+      // Handle specific ContractError
       res.status((error as ContractError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof RPCError) {
+      // Handle specific RPCError
       res.status((error as RPCError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof HTTPError) {
+      // Handle specific HTTPError
       res.status((error as HTTPError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else {
+      // Handle unknown error
       res.status(500).json({ error: { type: 'Unknown', message: `Unknow error occured : ${error}` } });
     }
   }

@@ -8,6 +8,7 @@ import { Bin, LBFactoryV21ABI, LBPairV21ABI } from '@traderjoe-xyz/sdk-v2';
 import { ContractError } from '../errors/customCodes';
 import { MultiCall } from 'eth-multicall';
 
+// Get liquidity for a pair in a specific bin
 export const getLiquidity = async (pairAddress: string, base: string, base_asset_decimals: number, quote: string, quote_asset_decimals: number, bin_step: string, activeBinId: number) => {
     // Get liquidity amounts for this bin
     const pairContract = getContract(LBPairV21ABI, pairAddress, baseWeb3());
@@ -64,6 +65,7 @@ export const getLiquidity = async (pairAddress: string, base: string, base_asset
     }
 }
 
+// Get price for a given pair and bin step
 export const getPrice = async (base_asset: string, quote_asset: string, bin_step: string, checkLiquidity: boolean) => {
     // Get Pair from Joe Factory
     const joeFactory = getContract(LBFactoryV21ABI, JOE_FACTORY, baseWeb3());    
@@ -137,6 +139,7 @@ export const getPrice = async (base_asset: string, quote_asset: string, bin_step
     return price;   
 }
 
+// Fetch data for a given pair and bin step
 export const fetchData = async (base_asset: string, quote_asset: string, bin_step: string, checkLiquidity: boolean = true) => {
     const cacheKey = `single_v2_1:${base_asset}_${quote_asset}_${bin_step}`;
     const invertedCacheKey = `single_v2_1:${quote_asset}_${base_asset}_${bin_step}`;

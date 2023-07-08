@@ -5,6 +5,8 @@ import { getSinglePairPrice as getSinglePairPriceV2_1, getBatchPrices as getBatc
 
 const router = express.Router();
 
+// Define routes for v1
+
 /** Swagger Doc for GET/v1
 *    @swagger
 *    /v1/prices/{base}/{quote}:
@@ -36,7 +38,7 @@ const router = express.Router();
 *                  price:
 *                    type: number
 */
-router.get('/v1/prices/:base_asset/:quote_asset', getSinglePairPriceV1);
+router.get('/v1/prices/:base_asset/:quote_asset', getSinglePairPriceV1); // Route to get the price of a single pair in v1
 
 /** Swagger Doc for POST/v1
 *    @swagger
@@ -71,7 +73,9 @@ router.get('/v1/prices/:base_asset/:quote_asset', getSinglePairPriceV1);
 *                additionalProperties:
 *                  type: number
 */
-router.post('/v1/batch-prices/', getBatchPricesV1);
+router.post('/v1/batch-prices/', getBatchPricesV1); // Route to get prices for multiple pairs in v1
+
+// Define routes for v2
 
 /** Swagger Doc for GET/v2
 *    @swagger
@@ -111,7 +115,7 @@ router.post('/v1/batch-prices/', getBatchPricesV1);
 *                  price:
 *                    type: number
 */
-router.get('/v2/prices/:base_asset/:quote_asset/:bin_step', getSinglePairPriceV2);
+router.get('/v2/prices/:base_asset/:quote_asset/:bin_step', getSinglePairPriceV2); // Route to get the price of a single pair in v2
 
 /** Swagger Doc for POST/v2
 *    @swagger
@@ -148,7 +152,9 @@ router.get('/v2/prices/:base_asset/:quote_asset/:bin_step', getSinglePairPriceV2
 *                additionalProperties:
 *                  type: number
 */
-router.post('/v2/batch-prices/', getBatchPricesV2);
+router.post('/v2/batch-prices/', getBatchPricesV2); // // Route to get prices for multiple pairs in v2
+
+// Define routes for v2.1
 
 /** Swagger Doc for GET/v2.1
 *    @swagger
@@ -188,7 +194,7 @@ router.post('/v2/batch-prices/', getBatchPricesV2);
 *                  price:
 *                    type: number
 */
-router.get('/v2_1/prices/:base_asset/:quote_asset/:bin_step', getSinglePairPriceV2_1);
+router.get('/v2_1/prices/:base_asset/:quote_asset/:bin_step', getSinglePairPriceV2_1); // Route to get the price of a single pair in v2.1
 
 /** Swagger Doc for POST/v2.1
 *    @swagger
@@ -225,7 +231,7 @@ router.get('/v2_1/prices/:base_asset/:quote_asset/:bin_step', getSinglePairPrice
 *                additionalProperties:
 *                  type: number
 */
-router.post('/v2_1/batch-prices/', getBatchPricesV2_1);
+router.post('/v2_1/batch-prices/', getBatchPricesV2_1); // Route to get prices for multiple pairs in v2.1
 
 
 export default router;

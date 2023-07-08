@@ -7,7 +7,7 @@ export const getSinglePairPrice = async (req: Request, res: Response) => {
   const { base_asset, quote_asset, bin_step } = req.params;
 
   try {
-    // Get Price from v1
+    // Get Price from v2
     const price = await fetchData(base_asset, quote_asset, bin_step);
     if(price) {
       res.json({ price });
@@ -18,15 +18,19 @@ export const getSinglePairPrice = async (req: Request, res: Response) => {
   }
   catch (error) {
     if(error instanceof ContractError) {
+      // Handle specific ContractError
       res.status((error as ContractError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof RPCError) {
+      // Handle specific RPCError
       res.status((error as RPCError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof HTTPError) {
+      // Handle specific HTTPError
       res.status((error as HTTPError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else {
+      // Handle unknown error
       res.status(500).json({ error: { type: 'Unknown', message: `Unknow error occured : ${error}` } });
     }
   }
@@ -45,7 +49,7 @@ export const getBatchPrices = async (req: Request, res: Response) => {
       pairs.map(async (pair: { base_asset: string; quote_asset: string; bin_step: string }) => {
         const { base_asset, quote_asset, bin_step } = pair;
 
-        // Get Price from v1
+        // Get Price from v2
         const price = await fetchData(base_asset, quote_asset, bin_step);
         if(price) {
           prices[`${base_asset}_${quote_asset}_${bin_step}`] = price;
@@ -61,15 +65,19 @@ export const getBatchPrices = async (req: Request, res: Response) => {
   } 
   catch (error) {
     if(error instanceof ContractError) {
+      // Handle specific ContractError
       res.status((error as ContractError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof RPCError) {
+      // Handle specific RPCError
       res.status((error as RPCError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else if(error instanceof HTTPError) {
+      // Handle specific HTTPError
       res.status((error as HTTPError).code).json({ error: { type: error.name, message: error.stack } });
     }
     else {
+      // Handle unknown error
       res.status(500).json({ error: { type: 'Unknown', message: `Unknow error occured : ${error}` } });
     }
   }

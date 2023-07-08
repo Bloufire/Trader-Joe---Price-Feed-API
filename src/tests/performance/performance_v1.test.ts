@@ -22,8 +22,11 @@ describe("Performance Load Testing", () => {
 
         listener.close();
 
+        // Output the results
         console.log(`Total response time: ${totalResponseTime}ms`);
         console.log(`Requests per second: ${requestsPerSecond}`);
+
+        // Verify the results
         expect(totalResponseTime).toBeGreaterThan(0);
         expect(requestsPerSecond).toBeGreaterThan(0);
     }, 30000);    
@@ -39,13 +42,16 @@ describe("Performance Load Testing", () => {
             const totalResponseTime = endTimestamp - startTimestamp;
             responseTimes.push(totalResponseTime);
         }
-        responseTimes.sort((a, b) => b - a); // Sort in descending order
+        responseTimes.sort((a, b) => b - a); // Sort the response times in descending order
         const p99Index = Math.ceil((1 / 100) * responseTimes.length);
         const p99ResponseTime = responseTimes[p99Index - 1];
 
         listener.close();
 
+        // Output the result
         console.log(`P99 response time: ${p99ResponseTime}ms`);
+
+        // Verify the results
         expect(p99ResponseTime).toBeGreaterThan(0);
     }, 30000);
 });
