@@ -8,7 +8,7 @@ const RPC = process.env.RPC || 'https://avalanche.blockpi.network/v1/rpc/public'
 const MULTICALL_CONTRACT = process.env.MULTICALL_CONTRACT || '0x6FfF95AC47b586bDDEea244b3c2fe9c4B07b9F76';
 const REFERENCE_STABLECOIN = '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e'; // USDC on AVAX
 const CACHE_EXPIRATION_TIME = process.env.CACHE_EXPIRATION_TIME || 2; // Avg Block Time AVAX C-Chain : 2s 
-const RATE_LIMIT_REQUESTS = process.env.RATE_LIMIT_REQUESTS || 100; // Rate Limit requests : 10 max / period 
+const RATE_LIMIT_REQUESTS = process.env.RATE_LIMIT_REQUESTS || 10000; // Rate Limit requests : 10 max / period 
 const RATE_LIMIT_PERIOD = process.env.RATE_LIMIT_PERIOD || 60000; // Rate limit period : 1min
 const MIN_LIQUIDITY = process.env.MIN_LIQUIDITY || 10; // Trigger for low liquidity errors : 10$
 

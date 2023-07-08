@@ -8,9 +8,19 @@ Price Feed API for [TraderJoe](https://traderjoexyz.com/) supporting v1, v2 & v2
 
 ```
 npm install
-npm run test 
+npm run test
 npm start
 ```
+
+For performance tests you need to run these commands. Be careful to your RPC limit cause these ones makes a lot of API calls which can hit the API calls limit.
+JEST Tests results can be viewed after each command from an html report available in app folder
+
+```
+npm run test-v1
+npm run test-v2
+npm run test-v21
+```
+
 
 Use Swagger-UI to test different endpoints :
 http://localhost:3000/docs

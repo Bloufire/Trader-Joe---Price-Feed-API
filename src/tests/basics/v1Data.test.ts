@@ -1,7 +1,7 @@
-import { fetchData, getLiquidity, getPrice } from "../data/priceDataV1_multicall";
-import { getReferenceStablecoin } from "../utils/priceHelper";
-import { CACHE_EXPIRATION_TIME, JOE_TOKEN } from '../constants';
-import { getCache } from "../utils/cache";
+import { fetchData, getLiquidity, getPrice } from "../../data/priceDataV1_multicall";
+import { getReferenceStablecoin } from "../../utils/priceHelper";
+import { CACHE_EXPIRATION_TIME, JOE_TOKEN } from '../../constants';
+import { getCache } from "../../utils/cache";
 
 describe("v1 Data Testing", () => {
     const ZERO_ADDR = "0x0000000000000000000000000000000000000000";

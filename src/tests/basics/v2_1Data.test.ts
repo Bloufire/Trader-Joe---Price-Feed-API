@@ -1,9 +1,9 @@
-import { fetchData, getPrice } from "../data/priceDataV2_multicall";
-import { getReferenceStablecoin } from "../utils/priceHelper";
-import { CACHE_EXPIRATION_TIME, JOE_TOKEN } from '../constants';
-import { getCache } from "../utils/cache";
+import { fetchData, getPrice } from "../../data/priceDataV2_1_multicall";
+import { getReferenceStablecoin } from "../../utils/priceHelper";
+import { CACHE_EXPIRATION_TIME, JOE_TOKEN } from '../../constants';
+import { getCache } from "../../utils/cache";
 
-describe("v2 Data Testing", () => {
+describe("v2.1 Data Testing", () => {
     const ZERO_ADDR = "0x0000000000000000000000000000000000000000";
 
     test("Pair existance Checks", async () => {
@@ -14,7 +14,7 @@ describe("v2 Data Testing", () => {
     });
 
     test("Cache Checks", async () => {
-        const cacheKey = `single_v2:${getReferenceStablecoin()}_${JOE_TOKEN}_${25}`;
+        const cacheKey = `single_v2_1:${getReferenceStablecoin()}_${JOE_TOKEN}_${25}`;
         
         // Case 1 - Cache must be empty
         expect(getCache(cacheKey)).toBe(undefined);

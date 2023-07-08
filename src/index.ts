@@ -46,6 +46,8 @@ app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 // Add routes
 app.use('/', priceRoutes); 
 
-app.listen(PORT, () => {
+export const listener = app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
+
+export default app;

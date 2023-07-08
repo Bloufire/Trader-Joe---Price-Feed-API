@@ -1,5 +1,5 @@
-import { baseWeb3 } from '../utils/web3';
-import { getReferenceStablecoin } from '../utils/priceHelper';
+import { baseWeb3 } from '../../utils/web3';
+import { getReferenceStablecoin } from '../../utils/priceHelper';
 
 describe("General Testing", () => {
     test("Checks if RPC works fine, ZERO_ADDRESS have balance > 0", async () => {
