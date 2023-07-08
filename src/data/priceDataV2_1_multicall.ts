@@ -138,8 +138,8 @@ export const getPrice = async (base_asset: string, quote_asset: string, bin_step
 }
 
 export const fetchData = async (base_asset: string, quote_asset: string, bin_step: string, checkLiquidity: boolean = true) => {
-    const cacheKey = `single_v2_1:${base_asset}_${quote_asset}`;
-    const invertedCacheKey = `single_v2_1:${quote_asset}_${base_asset}`;
+    const cacheKey = `single_v2_1:${base_asset}_${quote_asset}_${bin_step}`;
+    const invertedCacheKey = `single_v2_1:${quote_asset}_${base_asset}_${bin_step}`;
 
     // Check if price X / Y is already in cache
     const cachedPrice = getCache(cacheKey);

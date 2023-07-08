@@ -10,9 +10,11 @@
     "resolveJsonModule": true
   },
   "include": [
-    "src/**/*.ts"
-, "src/utils/web3.js"  ],
+    "src/**/*.ts", 
+    "src/utils/web3.js" 
+  ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "tests"
   ]
 }

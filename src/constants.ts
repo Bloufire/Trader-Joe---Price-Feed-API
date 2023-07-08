@@ -1,4 +1,4 @@
-import { FACTORY_ADDRESS, ChainId } from '@traderjoe-xyz/sdk';
+import { FACTORY_ADDRESS, ChainId, JOE_ADDRESS } from '@traderjoe-xyz/sdk';
 import { LB_FACTORY_ADDRESS, LB_FACTORY_V21_ADDRESS } from '@traderjoe-xyz/sdk-v2';
 
 // API Parameters
@@ -16,6 +16,7 @@ const MIN_LIQUIDITY = process.env.MIN_LIQUIDITY || 10; // Trigger for low liquid
 const JOE_FACTORY_V1 = process.env.JOE_FACTORY_V1 || FACTORY_ADDRESS[CHAIN_ID];
 const JOE_FACTORY_V2 = process.env.JOE_FACTORY_V2 || LB_FACTORY_ADDRESS[CHAIN_ID];
 const JOE_FACTORY_V2_1 = process.env.JOE_FACTORY_V2_1 || LB_FACTORY_V21_ADDRESS[CHAIN_ID];
+const JOE_TOKEN = process.env.JOE_TOKEN || JOE_ADDRESS[CHAIN_ID];
 
 // Bin Constants
 const SCALE_OFFSET = process.env.SCALE_OFFSET || 128;
@@ -39,6 +40,7 @@ export {
   BASIS_POINT_MAX,
   REAL_ID_SHIFT,
   PRECISION,
+  JOE_TOKEN,
 
   CACHE_EXPIRATION_TIME,
   RATE_LIMIT_REQUESTS,

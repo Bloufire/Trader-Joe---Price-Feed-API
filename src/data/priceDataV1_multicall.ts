@@ -17,14 +17,14 @@ export const getLiquidity = async (base: string, baseBal: number, quote: string,
     }
     else{
         // Check for pair REFERENCE_STABLECOIN / base 
-        const basePrice = await getPrice(getReferenceStablecoin(), base, false);
+        const basePrice = await fetchData(getReferenceStablecoin(), base, false);
         if(basePrice) {
             // If Price is found, liquidity = baseBal * Price * 2
             return baseBal * (basePrice as number) * 2;
         }
         else {
             // Check for pair REFERENCE_STABLECOIN / quote
-            const quotePrice = await getPrice(getReferenceStablecoin(), quote, false);
+            const quotePrice = await fetchData(getReferenceStablecoin(), quote, false);
             if(quotePrice) {
                 // If Price is found, liquidity = quoteBal * Price * 2
                 return quoteBal * quotePrice * 2;
@@ -76,7 +76,7 @@ export const getPrice = async (base_asset: string, quote_asset: string, checkLiq
     return baseBal / quoteBal;
 }
 
-export const fetchData = async (base_asset: string, quote_asset: string) => {
+export const fetchData = async (base_asset: string, quote_asset: string, checkLiquidity: boolean = true) => {
     const cacheKey = `single_v1:${base_asset}_${quote_asset}`;
     const invertedCacheKey = `single_v1:${quote_asset}_${base_asset}`;
 
@@ -87,7 +87,7 @@ export const fetchData = async (base_asset: string, quote_asset: string) => {
     }
 
     // Get Price and checks for MIN_LIQUIDITY
-    const price = await getPrice(base_asset, quote_asset, true);
+    const price = await getPrice(base_asset, quote_asset, checkLiquidity);
     if(!price) {
         return undefined;
     }

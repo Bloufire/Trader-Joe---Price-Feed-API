@@ -9,7 +9,8 @@ This version implements all the design logic of the API, but does not integrate 
 ## How to run
 
 ```
-npm install 
+npm install
+npm run test 
 npm start
 ```
 
