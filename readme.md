@@ -40,7 +40,7 @@ MIN_LIQUIDITY - Default is 10$ (for v2 / v2.1), for v1 this value needs to be 10
 - If there’s no pool for tokenX and tokenY, it returns an error
 - Should handle V1, V2 and V2.1 pairs
 - Handles low liquidity situations
-- - Low liquidity is defined by <$10 of liquidity in each bin in the +/- 5 bins around active bin
+  - Low liquidity is defined by <$10 of liquidity in each bin in the +/- 5 bins around active bin
 
 ### API design
 
