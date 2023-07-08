@@ -2,6 +2,8 @@
 
 Price Feed API for [TraderJoe](https://traderjoexyz.com/) supporting v1, v2 & v2_1 pairs.
 
+This version implements all the design logic of the API, but does not integrate test automation which is still in progress
+
 ---
 
 ## How to run
