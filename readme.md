@@ -18,14 +18,14 @@ http://localhost:3000/docs
 Default environment is AVAX C-Chain
 Customizable environment vars:
 
-CHAIN_ID - If you want to check prices for Arbitrum or BSC. If so, don't forget to update RPC & REFERENCE_STABLECOIN too.
-RPC - If you want to use a custom RPC. Default is 'https://rpc.ankr.com/avalanche'.
-MULTICALL_CONTRACT - Address of a multicall contract. Default is '0x6FfF95AC47b586bDDEea244b3c2fe9c4B07b9F76' (AVAX C-Chain)
-REFERENCE_STABLECOIN - Used to handle low liquidities issues. Default is '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e' (USDC on AVAX C-Chain).
-CACHE_EXPIRATION_TIME - Default cache expiration is 2s (Avg Blocktime for AVAX C-Chain is 2s).
-RATE_LIMIT_REQUESTS - Default is 10 requests / period.
-RATE_LIMIT_PERIOD - Default is 60s.
-MIN_LIQUIDITY - Default is 10$ (for v2 / v2.1), for v1 this value needs to be 10x higher
+- CHAIN_ID - If you want to check prices for Arbitrum or BSC. If so, don't forget to update RPC & REFERENCE_STABLECOIN too.
+- RPC - If you want to use a custom RPC. Default is 'https://rpc.ankr.com/avalanche'.
+- MULTICALL_CONTRACT - Address of a multicall contract. Default is '0x6FfF95AC47b586bDDEea244b3c2fe9c4B07b9F76' (AVAX C-Chain)
+- REFERENCE_STABLECOIN - Used to handle low liquidities issues. Default is '0xb97ef9ef8734c71904d8002f8b6bc66dd9c48a6e' (USDC on AVAX C-Chain).
+- CACHE_EXPIRATION_TIME - Default cache expiration is 2s (Avg Blocktime for AVAX C-Chain is 2s).
+- RATE_LIMIT_REQUESTS - Default is 10 requests / period.
+- RATE_LIMIT_PERIOD - Default is 60s.
+- MIN_LIQUIDITY - Default is 10$ (for v2 / v2.1), for v1 this value needs to be 10x higher
 
 ---
 
